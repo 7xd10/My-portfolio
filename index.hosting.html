@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Cyber Security Engineering Student|Penetration Tester |CTF{Player} | AI enthusiast" />
+    <title>Youssef Alaoui Hichami | CyberSecurity Engineering Student</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+    <style>
+        :root {
+            --bg: #0d1117;
+            --accent: #00ff88;
+            --text: #c9d1d9;
+            --card: #161b22;
+            --border: #30363d;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Roboto Mono', monospace;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        ::selection { background:var(--accent); color:#000; }
+
+        #matrix {
+            position: fixed;
+            top:0; left:0; width:100%; height:100%;
+            z-index: -1; opacity: 0.2;
+            pointer-events: none;
+        }
+
+        header {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+        .hero {
+            z-index: 2;
+        }
+        .hero img {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            border: 5px solid var(--accent);
+            box-shadow: 0 0 30px rgba(0,255,136,0.6);
+            margin-bottom: 2rem;
+            transition: transform 1s;
+        }
+        .hero img:hover { transform: scale(1.1) rotate(5deg); }
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            background: linear-gradient(90deg, #00ff88, #00b7ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+        .hero p {
+            font-size: 1.4rem;
+            margin: 0.5rem 0;
+            color: var(--accent);
+        }
+        .typewriter {
+            font-weight: 700;
+            overflow: hidden;
+            border-right: 3px solid var(--accent);
+            white-space: nowrap;
+            animation: typing 2s steps(30) infinite, blink 0.7s infinite;
+        }
+        @keyframes typing {
+            0% { width: 0; }
+            50% { width: 100%; }
+            100% { width: 0; }
+        }
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+
+        nav {
+            position: fixed;
+            top: 20px;
+            right: 30px;
+            z-index: 100;
+        }
+        nav a {
+            color: var(--text);
+            margin: 0 15px;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        nav a:hover { color: var(--accent); }
+
+        section {
+            padding: 100px 10%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        h2::after {
+            content: '';
+            width: 100px;
+            height: 4px;
+            background: var(--accent);
+            display: block;
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0,255,136,0.1));
+            transition: 0.6s;
+        }
+        .card:hover::before { left: 100%; }
+        .card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 15px 30px rgba(0,255,136,0.2);
+            border-color: var(--accent);
+        }
+        .card i {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .skill-bar {
+            background: var(--border);
+            height: 12px;
+            border-radius: 6px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+        .skill-fill {
+            height: 100%;
+            background: var(--accent);
+            border-radius: 6px;
+            width: 0;
+            transition: width 2s ease-out;
+        }
+
+        .contact-links a {
+            display: inline-flex;
+            align-items: center;
+            background: var(--card);
+            padding: 1rem 2rem;
+            margin: 1rem;
+            border-radius: 50px;
+            text-decoration: none;
+            color: var(--text);
+            border: 2px solid var(--border);
+            transition: 2s;
+        }
+        .contact-links a:hover {
+            background: var(--accent);
+            color: #000;
+            border-color: var(--accent);
+            transform: scale(1.05);
+        }
+        .contact-links i { margin-right: 10px; font-size: 1.4rem; }
+
+        footer {
+            text-align: center;
+            padding: 3rem;
+            background: #000;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            nav { position: relative; top:0; text-align:center; padding:1rem; background:rgba(0,0,0,0.8); }
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="matrix"></canvas>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <header>
+        <div class="hero">
+            <img src="https://i.top4top.io/p_35945m1en0.jpeg" alt="Youssef Alaoui Hichami">
+            <h1>Youssef Alaoui Hichami</h1>
+            <p>CyberSecurity Engineering Student</p>
+            <p class="typewriter">Jr Penetration Tester | CTF{Player} | AI enthusiast</p>
+        </div>
+    </header>
+
+    <section id="about">
+        <h2>Who I Am</h2>
+        <div class="cards">
+            <div class="card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Pentesting</h3>
+                <p>WEB</p>
+                <p>AD</p>
+                <p>Android</p>
+                <p>LoT</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-code"></i>
+                <h3>Programming Languages</h3>
+                <p>C</p>
+                <p>C++</p>
+                <p>Pyhton</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-graduation-cap"></i>
+                <h3>Certified </h3>
+                <p>SPARKSEC ETHICAL HACKING PROGRAM V1 </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Ethical Skills</h2>
+        <div class="cards">
+            <div class="card">
+                <h3>Web Pentesting <span style="float:right;">95%</span></h3>
+                <div class="skill-bar"><div class="skill-fill" style="width:95%;"></div></div>
+            </div>
+            <div class="card">
+                <h3>OSINT <span style="float:right;">95%</span></h3>
+                <div class="skill-bar"><div class="skill-fill" style="width:95%;"></div></div>
+            </div>
+            <div class="card">
+                <h3>LoT Pentesting <span style="float:right;">92%</span></h3>
+                <div class="skill-bar"><div class="skill-fill" style="width:92%;"></div></div>
+            </div>
+            <div class="card">
+                <h3>Ethical Scan & Exploit <span style="float:right;">90%</span></h3>
+                <div class="skill-bar"><div class="skill-fill" style="width:90%;"></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Let’s Connect</h2>
+        <div class="contact-links" style="text-align:center;">
+            <a href="https://ma.linkedin.com/in/youssef-alaoui-hichami" target="_blank">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="https://github.com/7xd10" target="_blank">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+            <a href="mailto:alaouihichamiyoussef@gmail.com">
+                <i class="fas fa-envelope"></i> Email
+            </a>
+            <a href="https://youtube.com/">
+                <i class="fab fa-youtube"></i> Youtube
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Youssef Alaoui Hichami</p>
+    </footer>
+
+    <script>
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const letters = '01ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+        const drops = Array(Math.floor(columns)).fill(1);
+
+        function draw() {
+            ctx.fillStyle = 'rgba(13, 17, 23, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#00ff88';
+            ctx.font = `${fontSize}px monospace`;
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = letters[Math.floor(Math.random() * letters.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975)
+                    drops[i] = 0;
+
+                drops[i]++;
+            }
+        }
+        setInterval(draw, 35);
+
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.skill-fill').forEach(bar => {
+                bar.style.width = bar.parentElement.previousElementSibling.querySelector('span').textContent;
+            });
+        });
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>
